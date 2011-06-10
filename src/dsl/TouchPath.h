@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface TouchPath : NSObject
+{
+    CGPoint point; 
+}
 
+// Designated Initializer
 -(id)initWithPoint:(CGPoint)point;
+
+// Be aware point's default initialization is (0,0) 
+@property (nonatomic, readonly) CGPoint point;
 @end

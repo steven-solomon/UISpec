@@ -8,6 +8,10 @@
 
 #import <GHUnitIOS/GHUnit.h>
 
+@class TouchPath;
 @interface TouchPathTests : GHTestCase
-
+{
+    CGPoint point;
+    TouchPath *path;
+}
 @end

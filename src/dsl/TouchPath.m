@@ -10,17 +10,19 @@
 
 @implementation TouchPath
 
+@synthesize point;
+
 - (id)init
 {
-    return nil; // test that this throws something
+    @throw @"Illegal instantiation use initWithPoint instead";
 }
 
-- (id)initWithPoint:(CGPoint)point
+- (id)initWithPoint:(CGPoint)initPoint
 {
     
     if (self = [super init]) 
     {
-        // Initialization code here.
+        point = initPoint;
     }
     
     return self;
