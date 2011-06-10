@@ -16,7 +16,10 @@
 		2FDBB76210EECD0200193065 /* UIQueryWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FDBB75A10EECD0200193065 /* UIQueryWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FDBB76310EECD0200193065 /* UIQueryWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDBB75B10EECD0200193065 /* UIQueryWebView.m */; };
 		40C7CC2A12E9E854003FF22C /* DescribeUIExpectation.h in Headers */ = {isa = PBXBuildFile; fileRef = C7D4F2EC10BDA57C00B00019 /* DescribeUIExpectation.h */; };
-		40C7CC2D12E9E8BB003FF22C /* libUISpec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C76EB5D20F74586B00EF8398 /* libUISpec.a */; };
+		64672D8913A2B8FC000C0271 /* VisibleTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 64672D8713A2B8FC000C0271 /* VisibleTouch.h */; };
+		64672D8A13A2B8FC000C0271 /* VisibleTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672D8813A2B8FC000C0271 /* VisibleTouch.m */; };
+		64672D8B13A2B935000C0271 /* libUISpec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C76EB5D20F74586B00EF8398 /* libUISpec.a */; };
+		64672D8C13A2B940000C0271 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64672D8513A2B8BF000C0271 /* CoreGraphics.framework */; };
 		B3C25CDF1381E93500BB634B /* UIQueryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */; };
 		B3C25CE01381E93500BB634B /* UIQueryScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C25CDE1381E93500BB634B /* UIQueryScrollView.h */; };
 		C708D8F110C4B86A000A2462 /* UIMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = C708D8EE10C4B86A000A2462 /* UIMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,6 +96,9 @@
 		2FDBB75910EECD0200193065 /* UIQueryTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIQueryTabBar.m; sourceTree = "<group>"; };
 		2FDBB75A10EECD0200193065 /* UIQueryWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIQueryWebView.h; sourceTree = "<group>"; };
 		2FDBB75B10EECD0200193065 /* UIQueryWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIQueryWebView.m; sourceTree = "<group>"; };
+		64672D8513A2B8BF000C0271 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		64672D8713A2B8FC000C0271 /* VisibleTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleTouch.h; sourceTree = "<group>"; };
+		64672D8813A2B8FC000C0271 /* VisibleTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisibleTouch.m; sourceTree = "<group>"; };
 		B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIQueryScrollView.m; sourceTree = "<group>"; };
 		B3C25CDE1381E93500BB634B /* UIQueryScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIQueryScrollView.h; sourceTree = "<group>"; };
 		C708D8EE10C4B86A000A2462 /* UIMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMatcher.h; sourceTree = "<group>"; };
@@ -166,7 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C7CC2D12E9E8BB003FF22C /* libUISpec.a in Frameworks */,
+				64672D8C13A2B940000C0271 /* CoreGraphics.framework in Frameworks */,
+				64672D8B13A2B935000C0271 /* libUISpec.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +183,7 @@
 		08FB7794FE84155DC02AAC07 /* UISpec */ = {
 			isa = PBXGroup;
 			children = (
+				64672D8513A2B8BF000C0271 /* CoreGraphics.framework */,
 				C7D4F2B110BDA46900B00019 /* specs */,
 				C76EB5E70F74592C00EF8398 /* src */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -235,6 +243,8 @@
 		C76EB7530F76DFF400EF8398 /* dsl */ = {
 			isa = PBXGroup;
 			children = (
+				64672D8713A2B8FC000C0271 /* VisibleTouch.h */,
+				64672D8813A2B8FC000C0271 /* VisibleTouch.m */,
 				C7653A8E1023BE15001FF86B /* UIChildren.h */,
 				C7653A8F1023BE15001FF86B /* UIChildren.m */,
 				C7653A901023BE15001FF86B /* UIDescendants.h */,
@@ -345,6 +355,7 @@
 				2FDBB76010EECD0200193065 /* UIQueryTabBar.h in Headers */,
 				2FDBB76210EECD0200193065 /* UIQueryWebView.h in Headers */,
 				B3C25CE01381E93500BB634B /* UIQueryScrollView.h in Headers */,
+				64672D8913A2B8FC000C0271 /* VisibleTouch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +468,7 @@
 				2FDBB76110EECD0200193065 /* UIQueryTabBar.m in Sources */,
 				2FDBB76310EECD0200193065 /* UIQueryWebView.m in Sources */,
 				B3C25CDF1381E93500BB634B /* UIQueryScrollView.m in Sources */,
+				64672D8A13A2B8FC000C0271 /* VisibleTouch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
