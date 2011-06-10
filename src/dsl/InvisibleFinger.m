@@ -6,11 +6,12 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TouchPoint.h"
+#import "InvisibleFinger.h"
 
-@implementation TouchPoint
+@implementation InvisibleFinger
 
 @synthesize point;
+@synthesize targetView;
 
 - (id)init
 {
@@ -28,4 +29,13 @@
     return self;
 }
 
+- (id)initWithPoint:(CGPoint)aPoint andTarget:(UIView *)view
+{
+    return nil;
+}
+
+- (UIView *)targetView
+{
+    return nil;
+}
 @end

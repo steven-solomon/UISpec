@@ -8,10 +8,10 @@
 
 #import <GHUnitIOS/GHUnit.h>
 
-@class TouchPoint;
-@interface TouchPointTests : GHTestCase
+@class InvisibleFinger;
+@interface InvisibleFingerTests : GHTestCase
 {
     CGPoint point;
-    TouchPoint *path;
+    InvisibleFinger *finger;
 }
 @end

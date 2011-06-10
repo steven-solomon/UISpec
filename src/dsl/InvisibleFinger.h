@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TouchPoint : NSObject
+@interface InvisibleFinger : NSObject
 {
     CGPoint point; 
+    UIView *targetView;
 }
 
 // Designated Initializer
 -(id)initWithPoint:(CGPoint)point;
+- (id)initWithPoint:(CGPoint)aPoint andTarget:(UIView *)view;
 
 // Be aware point's default initialization is (0,0) 
 @property (nonatomic, readonly) CGPoint point;
+@property (nonatomic, retain) UIView *targetView;
 @end
