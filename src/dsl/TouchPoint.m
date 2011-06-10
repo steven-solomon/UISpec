@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TouchPath.h"
+#import "TouchPoint.h"
 
-@implementation TouchPath
+@implementation TouchPoint
 
 @synthesize point;
 

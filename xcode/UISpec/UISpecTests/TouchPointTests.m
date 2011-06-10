@@ -6,15 +6,15 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TouchPathTests.h"
-#import "TouchPath.h"
+#import "TouchPointTests.h"
+#import "TouchPoint.h"
 
-@implementation TouchPathTests
+@implementation TouchPointTests
 
 - (void)setUp
 {
     point = CGPointMake(10, 0);
-    path = [[TouchPath alloc] initWithPoint:point];
+    path = [[TouchPoint alloc] initWithPoint:point];
 }
 
 - (void)tearDown
@@ -30,7 +30,7 @@
 
 - (void)testIllegalCreation
 {
-    GHAssertThrows([[TouchPath alloc] init], @"Init method shouldn't be allow");
+    GHAssertThrows([[TouchPoint alloc] init], @"Init method shouldn't be allow");
 }
 
 // Observe that structs assignment creates copies with identical values
@@ -46,7 +46,6 @@
     point.x = 52;
     GHAssertFalse(CGPointEqualToPoint(point, [path point]), @"Touch point should be immutable");
 }
-
 
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TouchPath : NSObject
+@interface TouchPoint : NSObject
 {
     CGPoint point; 
 }
