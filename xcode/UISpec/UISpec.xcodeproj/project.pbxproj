@@ -26,7 +26,10 @@
 		64672D9F13A2BA75000C0271 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64672D9D13A2BA75000C0271 /* InfoPlist.strings */; };
 		64672DB113A2BBC5000C0271 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64672DB013A2BBC5000C0271 /* GHUnitIOS.framework */; };
 		64672DB313A2BCA1000C0271 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB213A2BCA1000C0271 /* GHUnitIOSTestMain.m */; };
-		64672DB613A2BD2B000C0271 /* ExampleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB413A2BD2B000C0271 /* ExampleTest.m */; };
+		64672DB613A2BD2B000C0271 /* TouchPathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB413A2BD2B000C0271 /* TouchPathTests.m */; };
+		64672DB913A2BFAB000C0271 /* TouchPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 64672DB713A2BFAB000C0271 /* TouchPath.h */; };
+		64672DBA13A2BFAB000C0271 /* TouchPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* TouchPath.m */; };
+		64672DBB13A2BFAB000C0271 /* TouchPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* TouchPath.m */; };
 		B3C25CDF1381E93500BB634B /* UIQueryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */; };
 		B3C25CE01381E93500BB634B /* UIQueryScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C25CDE1381E93500BB634B /* UIQueryScrollView.h */; };
 		C708D8F110C4B86A000A2462 /* UIMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = C708D8EE10C4B86A000A2462 /* UIMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,8 +118,10 @@
 		64672DA213A2BA75000C0271 /* UISpecTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISpecTests-Prefix.pch"; sourceTree = "<group>"; };
 		64672DB013A2BBC5000C0271 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ../../../../Library/GH_UNIT/GHUnitIOS.framework; sourceTree = "<group>"; };
 		64672DB213A2BCA1000C0271 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
-		64672DB413A2BD2B000C0271 /* ExampleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleTest.m; sourceTree = "<group>"; };
-		64672DB513A2BD2B000C0271 /* ExampleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleTest.h; sourceTree = "<group>"; };
+		64672DB413A2BD2B000C0271 /* TouchPathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPathTests.m; sourceTree = "<group>"; };
+		64672DB513A2BD2B000C0271 /* TouchPathTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPathTests.h; sourceTree = "<group>"; };
+		64672DB713A2BFAB000C0271 /* TouchPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPath.h; sourceTree = "<group>"; };
+		64672DB813A2BFAB000C0271 /* TouchPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchPath.m; sourceTree = "<group>"; };
 		B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIQueryScrollView.m; sourceTree = "<group>"; };
 		B3C25CDE1381E93500BB634B /* UIQueryScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIQueryScrollView.h; sourceTree = "<group>"; };
 		C708D8EE10C4B86A000A2462 /* UIMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMatcher.h; sourceTree = "<group>"; };
@@ -249,8 +254,8 @@
 		64672D9A13A2BA75000C0271 /* UISpecTests */ = {
 			isa = PBXGroup;
 			children = (
-				64672DB413A2BD2B000C0271 /* ExampleTest.m */,
-				64672DB513A2BD2B000C0271 /* ExampleTest.h */,
+				64672DB413A2BD2B000C0271 /* TouchPathTests.m */,
+				64672DB513A2BD2B000C0271 /* TouchPathTests.h */,
 				64672D9B13A2BA75000C0271 /* Supporting Files */,
 			);
 			path = UISpecTests;
@@ -331,6 +336,8 @@
 				C708D8EF10C4B86A000A2462 /* UIMatcher.m */,
 				C77A47CE10C9903B00C1BF8D /* UIQueryExpectation.h */,
 				C77A47CF10C9903B00C1BF8D /* UIQueryExpectation.m */,
+				64672DB713A2BFAB000C0271 /* TouchPath.h */,
+				64672DB813A2BFAB000C0271 /* TouchPath.m */,
 			);
 			name = dsl;
 			path = ../../src/dsl;
@@ -420,6 +427,7 @@
 				2FDBB76210EECD0200193065 /* UIQueryWebView.h in Headers */,
 				B3C25CE01381E93500BB634B /* UIQueryScrollView.h in Headers */,
 				64672D8913A2B8FC000C0271 /* VisibleTouch.h in Headers */,
+				64672DB913A2BFAB000C0271 /* TouchPath.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +539,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				64672DB313A2BCA1000C0271 /* GHUnitIOSTestMain.m in Sources */,
-				64672DB613A2BD2B000C0271 /* ExampleTest.m in Sources */,
+				64672DB613A2BD2B000C0271 /* TouchPathTests.m in Sources */,
+				64672DBB13A2BFAB000C0271 /* TouchPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +578,7 @@
 				2FDBB76310EECD0200193065 /* UIQueryWebView.m in Sources */,
 				B3C25CDF1381E93500BB634B /* UIQueryScrollView.m in Sources */,
 				64672D8A13A2B8FC000C0271 /* VisibleTouch.m in Sources */,
+				64672DBA13A2BFAB000C0271 /* TouchPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

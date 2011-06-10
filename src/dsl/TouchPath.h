@@ -1,13 +1,14 @@
 //
-//  ExampleTest.h
+//  TouchPath.h
 //  UISpec
 //
 //  Created by Steve Solomon on 6/10/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <GHUnitIOS/GHUnit.h>
+#import <Foundation/Foundation.h>
 
-@interface ExampleTest : GHTestCase
+@interface TouchPath : NSObject
 
+-(id)initWithPoint:(CGPoint)point;
 @end
