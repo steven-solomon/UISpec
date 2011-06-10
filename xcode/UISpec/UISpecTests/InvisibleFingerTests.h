@@ -11,6 +11,7 @@
 @class InvisibleFinger;
 @interface InvisibleFingerTests : GHTestCase
 {
+    UIView *view;
     CGPoint point;
     InvisibleFinger *finger;
 }

@@ -14,19 +14,21 @@
 - (void)setUp
 {
     point = CGPointMake(10, 0);
-    finger = [[InvisibleFinger alloc] initWithPoint:point];
+    view = [[UIView alloc] init];
+    finger = [[InvisibleFinger alloc] initWithPoint:point andTarget:view];
 }
 
 - (void)tearDown
 {
     [finger release];
-
+    [view release];
 }
 
 - (void)testFingerSetup
 {
     GHAssertNotNil(finger, @"Path shouldn't be nil");
     GHAssertTrue(CGPointEqualToPoint(point, [finger point]), @"Finger should contain the point");
+    GHAssertEqualObjects(view, [finger targetView], @"Finger's target should have been set");
 }
 
 - (void)testIllegalInstance

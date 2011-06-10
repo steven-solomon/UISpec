@@ -31,11 +31,13 @@
 
 - (id)initWithPoint:(CGPoint)aPoint andTarget:(UIView *)view
 {
-    return nil;
+    if (self = [super init]) 
+    {
+        point = aPoint;
+        [self setTargetView:view];
+    }
+    
+    return self;
 }
 
-- (UIView *)targetView
-{
-    return nil;
-}
 @end
