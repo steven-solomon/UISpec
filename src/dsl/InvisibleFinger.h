@@ -15,7 +15,6 @@
 }
 
 // Designated Initializer
--(id)initWithPoint:(CGPoint)point;
 - (id)initWithPoint:(CGPoint)aPoint andTarget:(UIView *)view;
 
 // Be aware point's default initialization is (0,0) 

@@ -57,8 +57,8 @@
     // Since alot of The gesture structure is hidden and undocumented we have to use a partial mock
     UIGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] init] autorelease];
     id mockGestureRecognizer = [OCMockObject partialMockForObject:recognizer];
-    [[mockGestureRecognizer expect] touchesBegan:[OCMArg any] withEvent:[OCMArg any]];
-    [[mockGestureRecognizer expect] touchesEnded:[OCMArg any] withEvent:[OCMArg any]];
+    [[mockGestureRecognizer expect] touchesBegan:[OCMArg isNotNil] withEvent:[OCMArg isNotNil]];
+    [[mockGestureRecognizer expect] touchesEnded:[OCMArg isNotNil] withEvent:[OCMArg isNotNil]];
     
     [view addGestureRecognizer:mockGestureRecognizer];
     
