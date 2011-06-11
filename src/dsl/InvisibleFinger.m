@@ -44,14 +44,9 @@
     }
 
 }
-- (void)performTouch
+- (void)performEvent:(UIEvent *)event withTouch:(UITouch *)touch
 {
-    // Create touches and event
-    UITouch *touch = [[UITouch alloc] initInView:targetView 
-                                           xcoord:(int)point.x
-                                           ycoord:(int)point.y];
     NSSet *touches = [[NSSet alloc] initWithObjects:&touch count:1];
-    UIEvent *event = [[UIEvent alloc] init];
     
     // Display a visible touch on screen
     CGPoint convertedPoint = [[targetView superview] convertPoint:point fromView:targetView];
@@ -63,6 +58,9 @@
     // Send begining event
     [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
     [targetView touchesBegan:touches withEvent:event];
+
+    // Change touch phase
+    [touch setPhase:UITouchPhaseEnded];
     
     // Pause to allow for touch to be seen
     CFRunLoopRunInMode(kCFRunLoopDefaultMode, .25, false);
@@ -73,10 +71,19 @@
     
     [visibleTouch removeFromSuperview];
     [visibleTouch release];
-    [touch release];
     [touches release];
-    [event release];
 }
 
+- (void)performGestures
+{
+    // Create touches and event
+    UITouch *touch = [[UITouch alloc] init];
+    UIEvent *event = [[UIEvent alloc] init];
+    
+    [self performEvent:event withTouch:touch];
+    
+    [touch release];
+    [event release];
+}
 
 @end

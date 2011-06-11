@@ -9,6 +9,7 @@
 #import "InvisibleFingerTests.h"
 #import "OCMock/OCMock.h"
 #import "InvisibleFinger.h"
+#import "TouchSynthesis.h"
 
 @implementation InvisibleFingerTests
 
@@ -57,14 +58,21 @@
     // Since alot of the gesture structure is undocumented we have to use a partial mock
     UIGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] init] autorelease];
     id mockGestureRecognizer = [OCMockObject partialMockForObject:recognizer];
-    [[mockGestureRecognizer expect] touchesBegan:[OCMArg isNotNil] withEvent:[OCMArg isNotNil]];
-    [[mockGestureRecognizer expect] touchesEnded:[OCMArg isNotNil] withEvent:[OCMArg isNotNil]];
+    [[mockGestureRecognizer expect] touchesBegan:[OCMArg any] withEvent:[OCMArg any]];
+    [[mockGestureRecognizer expect] touchesEnded:[OCMArg any] withEvent:[OCMArg any]];
     
     [view addGestureRecognizer:mockGestureRecognizer];
     
+    // Fake out touch so we can make sure it changes phase
+    UITouch *touch = [[[UITouch alloc] init] autorelease];
+    // create partial mock for touch
+    id mockTouch = [OCMockObject partialMockForObject:touch];
+    [[mockTouch expect] setPhase:UITouchPhaseEnded];
+      
     // Exercise the finger 
-    [finger performTouch];
+    [finger performEvent:nil withTouch:mockTouch];
     
+    [mockTouch verify];
     [mockGestureRecognizer verify];
 }
 @end

@@ -25,6 +25,8 @@
 @property (nonatomic, readonly) CGPoint point;
 @property (nonatomic, retain) UIView *targetView;
 
-// Performs touch event
-- (void)performTouch;
+// Performs touch event (for internal use only do not call directly)
+- (void)performEvent:(UIEvent *)aEvent withTouch:(UITouch *)touch;
+// Performs Gestures contained within
+- (void)performGestures;
 @end
