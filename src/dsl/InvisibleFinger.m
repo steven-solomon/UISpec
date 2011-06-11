@@ -8,6 +8,7 @@
 
 #import "InvisibleFinger.h"
 #import "VisibleTouch.h"
+#import "TouchSynthesis.h"
 
 @implementation InvisibleFinger
 
@@ -46,8 +47,11 @@
 - (void)performTouch
 {
     // Create touches and event
-    NSSet *touches = [[[NSSet alloc] init] autorelease];
-    UIEvent *event = [[[UIEvent alloc] init] autorelease];
+    UITouch *touch = [[UITouch alloc] initInView:targetView 
+                                           xcoord:(int)point.x
+                                           ycoord:(int)point.y];
+    NSSet *touches = [[NSSet alloc] initWithObjects:&touch count:1];
+    UIEvent *event = [[UIEvent alloc] init];
     
     // Display a visible touch on screen
     CGPoint convertedPoint = [[targetView superview] convertPoint:point fromView:targetView];
@@ -67,6 +71,9 @@
     
     [visibleTouch removeFromSuperview];
     [visibleTouch release];
+    [touch release];
+    [touches release];
+    [event release];
 }
 
 

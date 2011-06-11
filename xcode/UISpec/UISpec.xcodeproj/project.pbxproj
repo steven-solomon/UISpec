@@ -19,6 +19,8 @@
 		6413822213A42B1E001311E9 /* TouchSynthesis.h in Headers */ = {isa = PBXBuildFile; fileRef = 6413822013A42B1E001311E9 /* TouchSynthesis.h */; };
 		6413822313A42B1E001311E9 /* TouchSynthesis.m in Sources */ = {isa = PBXBuildFile; fileRef = 6413822113A42B1E001311E9 /* TouchSynthesis.m */; };
 		6413822513A42B3B001311E9 /* TouchSynthesis.m in Sources */ = {isa = PBXBuildFile; fileRef = 6413822113A42B1E001311E9 /* TouchSynthesis.m */; };
+		6413822813A42D8C001311E9 /* EventSynthesis.h in Headers */ = {isa = PBXBuildFile; fileRef = 6413822613A42D8B001311E9 /* EventSynthesis.h */; };
+		6413822913A42D8C001311E9 /* EventSynthesis.m in Sources */ = {isa = PBXBuildFile; fileRef = 6413822713A42D8B001311E9 /* EventSynthesis.m */; };
 		64672D8913A2B8FC000C0271 /* VisibleTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 64672D8713A2B8FC000C0271 /* VisibleTouch.h */; };
 		64672D8A13A2B8FC000C0271 /* VisibleTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672D8813A2B8FC000C0271 /* VisibleTouch.m */; };
 		64672D8B13A2B935000C0271 /* libUISpec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C76EB5D20F74586B00EF8398 /* libUISpec.a */; };
@@ -126,6 +128,8 @@
 		2FDBB75B10EECD0200193065 /* UIQueryWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIQueryWebView.m; sourceTree = "<group>"; };
 		6413822013A42B1E001311E9 /* TouchSynthesis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchSynthesis.h; sourceTree = "<group>"; };
 		6413822113A42B1E001311E9 /* TouchSynthesis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchSynthesis.m; sourceTree = "<group>"; };
+		6413822613A42D8B001311E9 /* EventSynthesis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSynthesis.h; sourceTree = "<group>"; };
+		6413822713A42D8B001311E9 /* EventSynthesis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSynthesis.m; sourceTree = "<group>"; };
 		64672D8513A2B8BF000C0271 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		64672D8713A2B8FC000C0271 /* VisibleTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleTouch.h; sourceTree = "<group>"; };
 		64672D8813A2B8FC000C0271 /* VisibleTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisibleTouch.m; sourceTree = "<group>"; };
@@ -363,6 +367,8 @@
 				64672DB813A2BFAB000C0271 /* InvisibleFinger.m */,
 				6413822013A42B1E001311E9 /* TouchSynthesis.h */,
 				6413822113A42B1E001311E9 /* TouchSynthesis.m */,
+				6413822613A42D8B001311E9 /* EventSynthesis.h */,
+				6413822713A42D8B001311E9 /* EventSynthesis.m */,
 			);
 			name = dsl;
 			path = ../../src/dsl;
@@ -454,6 +460,7 @@
 				64672D8913A2B8FC000C0271 /* VisibleTouch.h in Headers */,
 				64672DB913A2BFAB000C0271 /* InvisibleFinger.h in Headers */,
 				6413822213A42B1E001311E9 /* TouchSynthesis.h in Headers */,
+				6413822813A42D8C001311E9 /* EventSynthesis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +616,7 @@
 				64672D8A13A2B8FC000C0271 /* VisibleTouch.m in Sources */,
 				64672DBA13A2BFAB000C0271 /* InvisibleFinger.m in Sources */,
 				6413822313A42B1E001311E9 /* TouchSynthesis.m in Sources */,
+				6413822913A42D8C001311E9 /* EventSynthesis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

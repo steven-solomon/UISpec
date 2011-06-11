@@ -100,6 +100,4 @@ UIQuery * $(NSMutableString *script, ...);
 
 @end
 
-@interface UIEvent (Synthesis)
-- (id)initWithTouch:(UITouch *)touch;
-@end
+
