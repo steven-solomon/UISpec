@@ -31,6 +31,7 @@
 		64672DBA13A2BFAB000C0271 /* InvisibleFinger.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* InvisibleFinger.m */; };
 		64672DBB13A2BFAB000C0271 /* InvisibleFinger.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* InvisibleFinger.m */; };
 		64F5679A13A4037C00440622 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F5679913A4037C00440622 /* libOCMock.a */; };
+		64F5679B13A4214D00440622 /* VisibleTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672D8813A2B8FC000C0271 /* VisibleTouch.m */; };
 		B3C25CDF1381E93500BB634B /* UIQueryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */; };
 		B3C25CE01381E93500BB634B /* UIQueryScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C25CDE1381E93500BB634B /* UIQueryScrollView.h */; };
 		C708D8F110C4B86A000A2462 /* UIMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = C708D8EE10C4B86A000A2462 /* UIMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -556,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64F5679B13A4214D00440622 /* VisibleTouch.m in Sources */,
 				64672DB313A2BCA1000C0271 /* GHUnitIOSTestMain.m in Sources */,
 				64672DB613A2BD2B000C0271 /* InvisibleFingerTests.m in Sources */,
 				64672DBB13A2BFAB000C0271 /* InvisibleFinger.m in Sources */,

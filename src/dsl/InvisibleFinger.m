@@ -1,5 +1,5 @@
 //
-//  TouchPath.m
+//  InvisibleFinger.m
 //  UISpec
 //
 //  Created by Steve Solomon on 6/10/11.
@@ -7,6 +7,7 @@
 //
 
 #import "InvisibleFinger.h"
+#import "VisibleTouch.h"
 
 @implementation InvisibleFinger
 
@@ -44,14 +45,25 @@
 }
 - (void)performTouch
 {
+    // Create touches and event
     NSSet *touches = [[[NSSet alloc] init] autorelease];
     UIEvent *event = [[[UIEvent alloc] init] autorelease];
     
+    // Display a visible touch on screen
+    CGPoint convertedPoint = [[targetView superview] convertPoint:point fromView:targetView];
+    VisibleTouch *visibleTouch = [[VisibleTouch alloc] initWithCenter:convertedPoint];
+    [[targetView superview] addSubview:visibleTouch];
+    [[targetView superview] bringSubviewToFront:visibleTouch];
+     
+    // Display 
     // Send begining event
     [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
     
     // Send ending event
     [self sendSelector:@selector(touchesEnded:withEvent:) withEvent:event andTouches:touches];
+    
+    [visibleTouch removeFromSuperview];
+    [visibleTouch release];
 }
 
 

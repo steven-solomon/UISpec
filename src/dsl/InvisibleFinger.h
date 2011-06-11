@@ -1,7 +1,11 @@
 //
-//  TouchPath.h
+//  InvisibleFinger.h
 //  UISpec
 //
+//  This class wraps gesture performing functionality, it 
+//  allows for a VisibleTouch to be displayed as well as the handling of
+//  backend event calls to gesture recognizers for it's targetView
+//  
 //  Created by Steve Solomon on 6/10/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
