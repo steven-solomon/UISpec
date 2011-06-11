@@ -7,6 +7,7 @@
 //
 
 #import "InvisibleFingerTests.h"
+#import "OCMock/OCMock.h"
 #import "InvisibleFinger.h"
 
 @implementation InvisibleFingerTests
@@ -50,5 +51,19 @@
     GHAssertFalse(CGPointEqualToPoint(point, [finger point]), @"Finger should be immutable");
 }
 
-
+// The gesture recognizer should receive a begining and ending touch
+- (void)testPerformTouch
+{    
+    // Since alot of The gesture structure is hidden and undocumented we have to use a partial mock
+    UIGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] init] autorelease];
+    id mockGestureRecognizer = [OCMockObject partialMockForObject:recognizer];
+    [[mockGestureRecognizer expect] touchesBegan:[OCMArg any] withEvent:[OCMArg any]];
+    [[mockGestureRecognizer expect] touchesEnded:[OCMArg any] withEvent:[OCMArg any]];
+    
+    [view addGestureRecognizer:mockGestureRecognizer];
+    
+    [finger performTouch];
+    
+    [mockGestureRecognizer verify];
+}
 @end

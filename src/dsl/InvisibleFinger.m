@@ -40,4 +40,18 @@
     return self;
 }
 
+- (void)performTouch
+{
+    // Send event to the gesture recognizers
+    for (UIGestureRecognizer *recognizer in [targetView gestureRecognizers])
+    {
+        [recognizer touchesBegan:nil withEvent:nil];
+    }
+    
+    for (UIGestureRecognizer *recognizer in [targetView gestureRecognizers])
+    {
+        [recognizer touchesEnded:nil withEvent:nil];
+    }
+}
+
 @end
