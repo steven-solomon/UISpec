@@ -62,12 +62,14 @@
     // Display 
     // Send begining event
     [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
+    [targetView touchesBegan:touches withEvent:event];
     
     // Pause to allow for touch to be seen
     CFRunLoopRunInMode(kCFRunLoopDefaultMode, .25, false);
     
     // Send ending event
     [self sendSelector:@selector(touchesEnded:withEvent:) withEvent:event andTouches:touches];
+    [targetView touchesEnded:touches withEvent:event];
     
     [visibleTouch removeFromSuperview];
     [visibleTouch release];
