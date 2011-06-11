@@ -59,6 +59,9 @@
     // Send begining event
     [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
     
+    // Pause to allow for touch to be seen
+    CFRunLoopRunInMode(kCFRunLoopDefaultMode, .25, false);
+    
     // Send ending event
     [self sendSelector:@selector(touchesEnded:withEvent:) withEvent:event andTouches:touches];
     
