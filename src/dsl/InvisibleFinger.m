@@ -9,6 +9,7 @@
 #import "InvisibleFinger.h"
 #import "VisibleTouch.h"
 #import "TouchSynthesis.h"
+#import "EventSynthesis.h"
 
 @implementation InvisibleFinger
 
@@ -76,9 +77,12 @@
 
 - (void)performGestures
 {
-    // Create touches and event
-    UITouch *touch = [[UITouch alloc] init];
-    UIEvent *event = [[UIEvent alloc] init];
+    // Create touch and event
+    UITouch *touch = [[UITouch alloc] initInView:targetView 
+                                          xcoord:(int)point.x 
+                                          ycoord:(int)point.y];
+    
+    UIEvent *event = [[NSClassFromString(@"UITouchesEvent") alloc] initWithTouch:touch];
     
     [self performEvent:event withTouch:touch];
     
