@@ -28,9 +28,11 @@
 
 - (void)testFingerSetup
 {
-    GHAssertNotNil(finger, @"Path shouldn't be nil");
+    // Tap setup
+    GHAssertNotNil(finger, @"Finger shouldn't be nil");
     GHAssertTrue(CGPointEqualToPoint(point, [finger point]), @"Finger should contain the point");
     GHAssertEqualObjects(view, [finger targetView], @"Finger's target should have been set");
+    
 }
 
 - (void)testIllegalInstance
@@ -74,5 +76,18 @@
     
     [mockTouch verify];
     [mockGestureRecognizer verify];
+}
+
+- (void)testPerformSwipe
+{
+    // Pan setup
+    CGPoint endPoint = CGPointMake(10, 50);
+    InvisibleFinger *panfinger = [[InvisibleFinger alloc] initWithStartPoint:point 
+                                                                    endPoint:endPoint 
+                                                                   andTarget:view];
+    GHAssertNotNil(panfinger, @"Finger shouldn't be nil");
+    
+    
+    
 }
 @end

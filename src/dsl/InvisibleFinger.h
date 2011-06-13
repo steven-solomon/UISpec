@@ -20,7 +20,7 @@
 
 // Designated Initializer
 - (id)initWithPoint:(CGPoint)aPoint andTarget:(UIView *)view;
-
+- (id)initWithStartPoint:(CGPoint)point1 endPoint:(CGPoint)point2 andTarget:(UIView *)view;
 // Be aware point's default initialization is (0,0) 
 @property (nonatomic, readonly) CGPoint point;
 @property (nonatomic, retain) UIView *targetView;

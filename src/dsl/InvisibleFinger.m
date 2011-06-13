@@ -32,6 +32,15 @@
     return self;
 }
 
+- (id)initWithStartPoint:(CGPoint)point1 endPoint:(CGPoint)point2 andTarget:(UIView *)view
+{
+    if (self = [super init]) 
+    {
+    }
+    
+    return self;
+}
+
 // Helper method to abstract sending event messages to all recognizers for our target view
 - (void)sendSelector:(SEL)selector withEvent:(UIEvent *)event andTouches:(NSSet *)touches
 {
@@ -75,7 +84,7 @@
     [touches release];
 }
 
-- (void)performGestures
+- (void)performTapGesture
 {
     // Create touch and event
     UITouch *touch = [[UITouch alloc] initInView:targetView 
@@ -90,4 +99,10 @@
     [event release];
 }
 
+- (void)performGestures
+{
+    [self performTapGesture];
+}
+
 @end
+
