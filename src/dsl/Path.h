@@ -18,6 +18,7 @@
     CGPoint endPoint;
     int slope;
     int distance;
+    CGPoint midPoint;
 }
 
 // Desginated Initializer
@@ -27,4 +28,5 @@
 @property (nonatomic, readonly) CGPoint endPoint;
 @property (nonatomic, readonly) int slope;
 @property (nonatomic, readonly) int distance;
+@property (nonatomic, readonly) CGPoint midPoint;
 @end

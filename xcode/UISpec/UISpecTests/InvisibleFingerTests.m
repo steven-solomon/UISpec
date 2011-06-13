@@ -16,7 +16,7 @@
 - (void)setUp
 {
     point = CGPointMake(10, 0);
-    view = [[UIView alloc] init];
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 500, 500)];
     finger = [[InvisibleFinger alloc] initWithPoint:point andTarget:view];
     gestureRecognized = NO;
 }
@@ -64,39 +64,50 @@
     
     [finger performGestures];
     
-    // sleep long enough to wait for recognizer to call recognized: method
-    [NSThread sleepForTimeInterval:0.25];
+    [self waitForRecogition];
     
     GHAssertTrue(gestureRecognized, @"The gesture should have been recognized");
 }
 
-/*
+
 - (void)testPerformSwipe
 {
+    
     // Pan setup
+    CGPoint startPoint = CGPointMake(200, 50);
     CGPoint endPoint = CGPointMake(10, 50);
-    InvisibleFinger *panfinger = [[InvisibleFinger alloc] initWithStartPoint:point 
+    InvisibleFinger *swipefinger = [[InvisibleFinger alloc] initWithStartPoint:startPoint 
                                                                     endPoint:endPoint 
                                                                    andTarget:view];
-    GHAssertNotNil(panfinger, @"Finger shouldn't be nil");
+    GHAssertNotNil(swipefinger, @"Finger shouldn't be nil");
     
-    UIGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] init] autorelease];
-    id mockGestureRecognizer = [OCMockObject partialMockForObject:recognizer];
-    [[mockGestureRecognizer expect] touchesBegan:[OCMArg any] withEvent:[OCMArg any]];
-    [[mockGestureRecognizer expect] touchesMoved:[OCMArg any] withEvent:[OCMArg any]];
-    [[mockGestureRecognizer expect] touchesEnded:[OCMArg any] withEvent:[OCMArg any]];
+    UIGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] init] autorelease];
+
+    [view addGestureRecognizer:recognizer];
     
-    [view addGestureRecognizer:mockGestureRecognizer];
+    [swipefinger performGestures];
     
-    [panfinger performGestures];
+    [self waitForRecogition];
     
     GHAssertTrue(gestureRecognized, @"The pan event should have resulted in the gesture being recognized");
     
-    [mockGestureRecognizer verify];
-}*/
+}
 
 - (void)recognized:(UIGestureRecognizer *)recognizer
 {
     gestureRecognized = YES;
+}
+
+- (void)waitForRecogition
+{
+    // sleep long enough to wait for recognizer to call recognized: method
+    int timeout = 4;
+    
+    // sleep four times to check if gesture method has been called
+    for (int count = 0; count < timeout; count++)
+    {
+        [NSThread sleepForTimeInterval:1.0];
+    }
+
 }
 @end

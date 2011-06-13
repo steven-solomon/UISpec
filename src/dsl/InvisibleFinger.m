@@ -104,8 +104,64 @@
 
 - (void)performGestures
 {
-    // if we don't have a path then we are dealling with a single touch
-    [self performTapGesture];
+    if (path != nil)
+    {
+        // Create touch and event
+        UITouch *touch = [[UITouch alloc] initInView:targetView 
+                                              xcoord:(int)[path startPoint].x 
+                                              ycoord:(int)[path startPoint].y];
+        
+        UIEvent *event = [[NSClassFromString(@"UITouchesEvent") alloc] initWithTouch:touch];
+        
+        NSSet *touches = [[NSSet alloc] initWithObjects:&touch count:1];
+        
+        // Display a visible touch on screen
+        CGPoint convertedPoint = [[targetView superview] convertPoint:point fromView:targetView];
+        VisibleTouch *visibleTouch = [[VisibleTouch alloc] initWithCenter:convertedPoint];
+        [[targetView superview] addSubview:visibleTouch];
+        [[targetView superview] bringSubviewToFront:visibleTouch];
+        
+        // Display 
+        // Send begining event
+        [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
+        [targetView touchesBegan:touches withEvent:event];
+        
+        // touch moved to midpoint
+        [touch setLocationInWindow:[path midPoint]];
+        // Change touch phase
+        [touch setPhase:UITouchPhaseMoved];
+        
+        [self sendSelector:@selector(touchesMoved:withEvent:) withEvent:event andTouches:touches];
+        [targetView touchesMoved:touches withEvent:event];
+
+        // touch moved to endpoint
+        [touch setLocationInWindow:[path endPoint]];
+        // Change touch phase
+        [touch setPhase:UITouchPhaseMoved];
+        
+        [self sendSelector:@selector(touchesMoved:withEvent:) withEvent:event andTouches:touches];
+        [targetView touchesMoved:touches withEvent:event];
+
+        // Touch ended
+        [touch setPhase:UITouchPhaseEnded];
+        
+        // Send ending event
+        [self sendSelector:@selector(touchesEnded:withEvent:) withEvent:event andTouches:touches];
+        [targetView touchesEnded:touches withEvent:event];
+        
+        [visibleTouch removeFromSuperview];
+        [visibleTouch release];
+        [touches release];
+
+        [touch release];
+        [event release];
+
+    }
+    else
+    {
+        // if we don't have a path then we are dealling with a single touch
+        [self performTapGesture];
+    }
 }
 
 @end

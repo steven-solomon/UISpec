@@ -17,4 +17,6 @@
     BOOL gestureRecognized;
 }
 - (void)recognized:(UIGestureRecognizer *)recognizer;
+// Helper method to wait for background thread to call recognized:
+- (void)waitForRecogition;
 @end

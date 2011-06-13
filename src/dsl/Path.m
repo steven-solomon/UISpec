@@ -14,6 +14,7 @@
 @synthesize endPoint;
 @synthesize slope;
 @synthesize distance;
+@synthesize midPoint;
 
 - (id)init
 {
@@ -28,6 +29,7 @@
         endPoint = end;
         slope = (end.y - start.y) / (end.x - start.x);
         distance = sqrtf(powf((end.x - start.x), 2) + powf((end.y - start.y), 2));
+        midPoint = CGPointMake((start.x + end.x) / 2 , (start.y + end.y) / 2);
     }
     
     return self;

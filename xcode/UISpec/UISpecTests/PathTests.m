@@ -38,5 +38,7 @@
     
     GHAssertEquals((int)0, [path slope], @"The path's slope should be 0");
     GHAssertEquals((int)20, [path distance], @"The distance between the two points should be 20");
+    
+    GHAssertTrue(CGPointEqualToPoint(CGPointMake(10,13), [path midPoint]), @"The midpoint should be (10, 13)");
 }
 @end
