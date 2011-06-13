@@ -26,10 +26,14 @@
     GHAssertThrows([[Path alloc] init], @"Should throw exception");
 }
 
-- (void)testSetup
+- (void)testPath
 {
-    Path *path = [[Path alloc] initWithStartPoint:CGPointZero endPoint:CGPointZero];
+    CGPoint start = CGPointMake(0, 13);
+    CGPoint end = CGPointMake(20, 13);
+    Path *path = [[Path alloc] initWithStartPoint:start endPoint:end];
     GHAssertNotNil(path, @"Path shouldn't be nil");
-
+    
+    GHAssertTrue(CGPointEqualToPoint(start, [path startPoint]), @"The start point should have been assigned");
+    GHAssertTrue(CGPointEqualToPoint(end, [path endPoint]), @"The end point should have been assigned");
 }
 @end

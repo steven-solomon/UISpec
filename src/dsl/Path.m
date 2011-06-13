@@ -10,6 +10,9 @@
 
 @implementation Path
 
+@synthesize startPoint;
+@synthesize endPoint;
+
 - (id)init
 {
     @throw @"Illegal init method use: initWithPoint1:point2";
@@ -19,6 +22,8 @@
 {
     if (self = [super init])
     {
+        startPoint = start;
+        endPoint = end;
     }
     
     return self;
