@@ -40,5 +40,9 @@
     GHAssertEquals((int)20, [path distance], @"The distance between the two points should be 20");
     
     GHAssertTrue(CGPointEqualToPoint(CGPointMake(10,13), [path midPoint]), @"The midpoint should be (10, 13)");
+    
+    GHAssertEquals((int)13, [path yIntercept], @"The y intercept should be 13");
 }
+
+
 @end
