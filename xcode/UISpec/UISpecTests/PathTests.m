@@ -5,12 +5,11 @@
 //  Created by Steve Solomon on 6/10/11.
 //
 
-#import "InvisibleFingerTests.h"
+#import "PathTests.h"
+#import "Path.h"
 #import "OCMock/OCMock.h"
-#import "InvisibleFinger.h"
-#import "TouchSynthesis.h"
 
-@implementation InvisibleFingerTests
+@implementation PathTests
 
 - (void)setUp
 {
@@ -22,4 +21,15 @@
    
 }
 
+- (void)testIllegalSetup
+{
+    GHAssertThrows([[Path alloc] init], @"Should throw exception");
+}
+
+- (void)testSetup
+{
+    Path *path = [[Path alloc] initWithStartPoint:CGPointZero endPoint:CGPointZero];
+    GHAssertNotNil(path, @"Path shouldn't be nil");
+
+}
 @end

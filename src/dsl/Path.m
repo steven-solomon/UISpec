@@ -12,9 +12,13 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
+    @throw @"Illegal init method use: initWithPoint1:point2";
+}
+
+- (id)initWithStartPoint:(CGPoint)start endPoint:(CGPoint)end;
+{
+    if (self = [super init])
+    {
     }
     
     return self;

@@ -10,4 +10,5 @@
 
 @interface Path : NSObject
 
+- (id)initWithStartPoint:(CGPoint)start endPoint:(CGPoint)end;
 @end
