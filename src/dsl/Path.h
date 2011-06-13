@@ -16,7 +16,8 @@
 {
     CGPoint startPoint;
     CGPoint endPoint;
-    float slope;
+    int slope;
+    int distance;
 }
 
 // Desginated Initializer
@@ -24,5 +25,6 @@
 
 @property (nonatomic, readonly) CGPoint startPoint;
 @property (nonatomic, readonly) CGPoint endPoint;
-@property (nonatomic, readonly) float slope;
+@property (nonatomic, readonly) int slope;
+@property (nonatomic, readonly) int distance;
 @end

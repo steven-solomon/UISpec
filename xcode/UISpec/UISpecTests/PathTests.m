@@ -36,6 +36,7 @@
     GHAssertTrue(CGPointEqualToPoint(start, [path startPoint]), @"The start point should have been assigned");
     GHAssertTrue(CGPointEqualToPoint(end, [path endPoint]), @"The end point should have been assigned");
     
-    GHAssertEquals((float)0.0, [path slope], @"The path's slope should be 0");
+    GHAssertEquals((int)0, [path slope], @"The path's slope should be 0");
+    GHAssertEquals((int)20, [path distance], @"The distance between the two points should be 20");
 }
 @end
