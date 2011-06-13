@@ -12,6 +12,7 @@
 
 @synthesize startPoint;
 @synthesize endPoint;
+@synthesize slope;
 
 - (id)init
 {
@@ -24,6 +25,7 @@
     {
         startPoint = start;
         endPoint = end;
+        slope = (end.y - start.y) / (end.x - start.x);
     }
     
     return self;
