@@ -39,6 +39,7 @@
 		64F3E22E13A6608700B396EA /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E22C13A6608700B396EA /* Path.m */; };
 		64F3E22F13A6608700B396EA /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E22C13A6608700B396EA /* Path.m */; };
 		64F3E23313A660B700B396EA /* PathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E23213A660B700B396EA /* PathTests.m */; };
+		64F3E23413A687F300B396EA /* EventSynthesis.m in Sources */ = {isa = PBXBuildFile; fileRef = 6413822713A42D8B001311E9 /* EventSynthesis.m */; };
 		64F5679A13A4037C00440622 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F5679913A4037C00440622 /* libOCMock.a */; };
 		64F5679B13A4214D00440622 /* VisibleTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672D8813A2B8FC000C0271 /* VisibleTouch.m */; };
 		B3C25CDF1381E93500BB634B /* UIQueryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */; };
@@ -152,7 +153,7 @@
 		64672DB813A2BFAB000C0271 /* InvisibleFinger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvisibleFinger.m; sourceTree = "<group>"; };
 		64F3E22B13A6608700B396EA /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
 		64F3E22C13A6608700B396EA /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
-		64F3E23113A660B700B396EA /* PathTests.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PathTests.h; sourceTree = "<group>"; };
+		64F3E23113A660B700B396EA /* PathTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathTests.h; sourceTree = "<group>"; };
 		64F3E23213A660B700B396EA /* PathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathTests.m; sourceTree = "<group>"; };
 		64F5679913A4037C00440622 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../../Libraries/libOCMock.a; sourceTree = "<group>"; };
 		B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIQueryScrollView.m; sourceTree = "<group>"; };
@@ -585,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64F3E23413A687F300B396EA /* EventSynthesis.m in Sources */,
 				64F5679B13A4214D00440622 /* VisibleTouch.m in Sources */,
 				64672DB313A2BCA1000C0271 /* GHUnitIOSTestMain.m in Sources */,
 				64672DB613A2BD2B000C0271 /* InvisibleFingerTests.m in Sources */,

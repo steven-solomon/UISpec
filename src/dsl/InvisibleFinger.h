@@ -12,10 +12,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class Path;
 @interface InvisibleFinger : NSObject
 {
     CGPoint point; 
     UIView *targetView;
+    Path *path;
 }
 
 // Designated Initializer

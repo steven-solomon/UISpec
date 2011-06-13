@@ -10,6 +10,7 @@
 #import "VisibleTouch.h"
 #import "TouchSynthesis.h"
 #import "EventSynthesis.h"
+#import "Path.h"
 
 @implementation InvisibleFinger
 
@@ -32,10 +33,12 @@
     return self;
 }
 
-- (id)initWithStartPoint:(CGPoint)point1 endPoint:(CGPoint)point2 andTarget:(UIView *)view
+- (id)initWithStartPoint:(CGPoint)start endPoint:(CGPoint)end andTarget:(UIView *)view
 {
     if (self = [super init]) 
     {
+        path = [[Path alloc] initWithStartPoint:start endPoint:end];
+        [self setTargetView:view];
     }
     
     return self;
@@ -101,6 +104,7 @@
 
 - (void)performGestures
 {
+    // if we don't have a path then we are dealling with a single touch
     [self performTapGesture];
 }
 

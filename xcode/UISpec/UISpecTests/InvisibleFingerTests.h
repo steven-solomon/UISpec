@@ -14,5 +14,7 @@
     UIView *view;
     CGPoint point;
     InvisibleFinger *finger;
+    BOOL gestureRecognized;
 }
+- (void)recognized:(UIGestureRecognizer *)recognizer;
 @end
