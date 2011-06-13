@@ -1,5 +1,5 @@
 //
-//  ExampleTest.h
+//  InvisibleFingerTests.h
 //  UISpec
 //
 //  Created by Steve Solomon on 6/10/11.

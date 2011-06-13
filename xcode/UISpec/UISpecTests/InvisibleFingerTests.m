@@ -1,5 +1,5 @@
 //
-//  ExampleTest.m
+//  InvisibleFingerTests.m
 //  UISpec
 //
 //  Created by Steve Solomon on 6/10/11.

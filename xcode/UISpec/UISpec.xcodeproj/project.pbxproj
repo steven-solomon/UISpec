@@ -35,6 +35,10 @@
 		64672DB913A2BFAB000C0271 /* InvisibleFinger.h in Headers */ = {isa = PBXBuildFile; fileRef = 64672DB713A2BFAB000C0271 /* InvisibleFinger.h */; };
 		64672DBA13A2BFAB000C0271 /* InvisibleFinger.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* InvisibleFinger.m */; };
 		64672DBB13A2BFAB000C0271 /* InvisibleFinger.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* InvisibleFinger.m */; };
+		64F3E22D13A6608700B396EA /* Path.h in Headers */ = {isa = PBXBuildFile; fileRef = 64F3E22B13A6608700B396EA /* Path.h */; };
+		64F3E22E13A6608700B396EA /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E22C13A6608700B396EA /* Path.m */; };
+		64F3E22F13A6608700B396EA /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E22C13A6608700B396EA /* Path.m */; };
+		64F3E23313A660B700B396EA /* PathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E23213A660B700B396EA /* PathTests.m */; };
 		64F5679A13A4037C00440622 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F5679913A4037C00440622 /* libOCMock.a */; };
 		64F5679B13A4214D00440622 /* VisibleTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672D8813A2B8FC000C0271 /* VisibleTouch.m */; };
 		B3C25CDF1381E93500BB634B /* UIQueryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */; };
@@ -146,6 +150,10 @@
 		64672DB513A2BD2B000C0271 /* InvisibleFingerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvisibleFingerTests.h; sourceTree = "<group>"; };
 		64672DB713A2BFAB000C0271 /* InvisibleFinger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvisibleFinger.h; sourceTree = "<group>"; };
 		64672DB813A2BFAB000C0271 /* InvisibleFinger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvisibleFinger.m; sourceTree = "<group>"; };
+		64F3E22B13A6608700B396EA /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
+		64F3E22C13A6608700B396EA /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
+		64F3E23113A660B700B396EA /* PathTests.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PathTests.h; sourceTree = "<group>"; };
+		64F3E23213A660B700B396EA /* PathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathTests.m; sourceTree = "<group>"; };
 		64F5679913A4037C00440622 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../../Libraries/libOCMock.a; sourceTree = "<group>"; };
 		B3C25CDD1381E93500BB634B /* UIQueryScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIQueryScrollView.m; sourceTree = "<group>"; };
 		B3C25CDE1381E93500BB634B /* UIQueryScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIQueryScrollView.h; sourceTree = "<group>"; };
@@ -281,6 +289,8 @@
 		64672D9A13A2BA75000C0271 /* UISpecTests */ = {
 			isa = PBXGroup;
 			children = (
+				64F3E23113A660B700B396EA /* PathTests.h */,
+				64F3E23213A660B700B396EA /* PathTests.m */,
 				64672DB513A2BD2B000C0271 /* InvisibleFingerTests.h */,
 				64672DB413A2BD2B000C0271 /* InvisibleFingerTests.m */,
 				64672D9B13A2BA75000C0271 /* Supporting Files */,
@@ -369,6 +379,8 @@
 				6413822113A42B1E001311E9 /* TouchSynthesis.m */,
 				6413822613A42D8B001311E9 /* EventSynthesis.h */,
 				6413822713A42D8B001311E9 /* EventSynthesis.m */,
+				64F3E22B13A6608700B396EA /* Path.h */,
+				64F3E22C13A6608700B396EA /* Path.m */,
 			);
 			name = dsl;
 			path = ../../src/dsl;
@@ -461,6 +473,7 @@
 				64672DB913A2BFAB000C0271 /* InvisibleFinger.h in Headers */,
 				6413822213A42B1E001311E9 /* TouchSynthesis.h in Headers */,
 				6413822813A42D8C001311E9 /* EventSynthesis.h in Headers */,
+				64F3E22D13A6608700B396EA /* Path.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +590,8 @@
 				64672DB613A2BD2B000C0271 /* InvisibleFingerTests.m in Sources */,
 				64672DBB13A2BFAB000C0271 /* InvisibleFinger.m in Sources */,
 				6413822513A42B3B001311E9 /* TouchSynthesis.m in Sources */,
+				64F3E22F13A6608700B396EA /* Path.m in Sources */,
+				64F3E23313A660B700B396EA /* PathTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +632,7 @@
 				64672DBA13A2BFAB000C0271 /* InvisibleFinger.m in Sources */,
 				6413822313A42B1E001311E9 /* TouchSynthesis.m in Sources */,
 				6413822913A42D8C001311E9 /* EventSynthesis.m in Sources */,
+				64F3E22E13A6608700B396EA /* Path.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
