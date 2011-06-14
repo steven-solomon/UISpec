@@ -18,7 +18,6 @@
     point = CGPointMake(10, 0);
     view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 500, 500)];
     finger = [[InvisibleFinger alloc] initWithPoint:point andTarget:view];
-    gestureRecognized = NO;
 }
 
 - (void)tearDown
@@ -55,59 +54,27 @@
     GHAssertFalse(CGPointEqualToPoint(point, [finger point]), @"Finger should be immutable");
 }
 
-- (void)testPerformTouch
+- (void)testTouchEvent
 {    
     // Since alot of the gesture structure is undocumented we have to use a partial mock
-    UIGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self 
-                                                                               action:@selector(recognized:)] autorelease];
-    [view addGestureRecognizer:recognizer];
+    UIGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] init] autorelease];
+    id mockGestureRecognizer = [OCMockObject partialMockForObject:recognizer];
+    [[mockGestureRecognizer expect] touchesBegan:[OCMArg any] withEvent:[OCMArg any]];
+    [[mockGestureRecognizer expect] touchesEnded:[OCMArg any] withEvent:[OCMArg any]];
     
-    [finger performGestures];
+    [view addGestureRecognizer:mockGestureRecognizer];
     
-    [self waitForRecogition];
+    // Fake out touch so we can make sure it changes phase
+    UITouch *touch = [[[UITouch alloc] init] autorelease];
+    // create partial mock for touch
+    id mockTouch = [OCMockObject partialMockForObject:touch];
+    [[mockTouch expect] setPhase:UITouchPhaseEnded];
     
-    GHAssertTrue(gestureRecognized, @"The gesture should have been recognized");
+    // Exercise the finger 
+    [finger performEvent:nil withTouch:mockTouch];
+    
+    [mockTouch verify];
+    [mockGestureRecognizer verify];
 }
 
-
-- (void)testPerformSwipe
-{
-    
-    // Pan setup
-    CGPoint startPoint = CGPointMake(200, 50);
-    CGPoint endPoint = CGPointMake(10, 50);
-    InvisibleFinger *swipefinger = [[InvisibleFinger alloc] initWithStartPoint:startPoint 
-                                                                    endPoint:endPoint 
-                                                                   andTarget:view];
-    GHAssertNotNil(swipefinger, @"Finger shouldn't be nil");
-    
-    UIGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] init] autorelease];
-
-    [view addGestureRecognizer:recognizer];
-    
-    [swipefinger performGestures];
-    
-    [self waitForRecogition];
-    
-    GHAssertTrue(gestureRecognized, @"The pan event should have resulted in the gesture being recognized");
-    
-}
-
-- (void)recognized:(UIGestureRecognizer *)recognizer
-{
-    gestureRecognized = YES;
-}
-
-- (void)waitForRecogition
-{
-    // sleep long enough to wait for recognizer to call recognized: method
-    int timeout = 4;
-    
-    // sleep four times to check if gesture method has been called
-    for (int count = 0; count < timeout; count++)
-    {
-        [NSThread sleepForTimeInterval:1.0];
-    }
-
-}
 @end

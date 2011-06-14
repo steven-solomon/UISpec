@@ -35,6 +35,7 @@
 		64672DB913A2BFAB000C0271 /* InvisibleFinger.h in Headers */ = {isa = PBXBuildFile; fileRef = 64672DB713A2BFAB000C0271 /* InvisibleFinger.h */; };
 		64672DBA13A2BFAB000C0271 /* InvisibleFinger.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* InvisibleFinger.m */; };
 		64672DBB13A2BFAB000C0271 /* InvisibleFinger.m in Sources */ = {isa = PBXBuildFile; fileRef = 64672DB813A2BFAB000C0271 /* InvisibleFinger.m */; };
+		64E88E2613A70B3F00974C3E /* InvisibileFingerAcceptanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E88E2513A70B3F00974C3E /* InvisibileFingerAcceptanceTests.m */; };
 		64F3E22D13A6608700B396EA /* Path.h in Headers */ = {isa = PBXBuildFile; fileRef = 64F3E22B13A6608700B396EA /* Path.h */; };
 		64F3E22E13A6608700B396EA /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E22C13A6608700B396EA /* Path.m */; };
 		64F3E22F13A6608700B396EA /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F3E22C13A6608700B396EA /* Path.m */; };
@@ -151,6 +152,8 @@
 		64672DB513A2BD2B000C0271 /* InvisibleFingerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvisibleFingerTests.h; sourceTree = "<group>"; };
 		64672DB713A2BFAB000C0271 /* InvisibleFinger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvisibleFinger.h; sourceTree = "<group>"; };
 		64672DB813A2BFAB000C0271 /* InvisibleFinger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvisibleFinger.m; sourceTree = "<group>"; };
+		64E88E2413A70B3F00974C3E /* InvisibileFingerAcceptanceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvisibileFingerAcceptanceTests.h; sourceTree = "<group>"; };
+		64E88E2513A70B3F00974C3E /* InvisibileFingerAcceptanceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvisibileFingerAcceptanceTests.m; sourceTree = "<group>"; };
 		64F3E22B13A6608700B396EA /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
 		64F3E22C13A6608700B396EA /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
 		64F3E23113A660B700B396EA /* PathTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathTests.h; sourceTree = "<group>"; };
@@ -290,10 +293,8 @@
 		64672D9A13A2BA75000C0271 /* UISpecTests */ = {
 			isa = PBXGroup;
 			children = (
-				64F3E23113A660B700B396EA /* PathTests.h */,
-				64F3E23213A660B700B396EA /* PathTests.m */,
-				64672DB513A2BD2B000C0271 /* InvisibleFingerTests.h */,
-				64672DB413A2BD2B000C0271 /* InvisibleFingerTests.m */,
+				64E88E2313A70B0700974C3E /* UnitTests */,
+				64E88E2213A70AFC00974C3E /* AcceptanceTests */,
 				64672D9B13A2BA75000C0271 /* Supporting Files */,
 			);
 			path = UISpecTests;
@@ -308,6 +309,26 @@
 				64672DA213A2BA75000C0271 /* UISpecTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		64E88E2213A70AFC00974C3E /* AcceptanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				64E88E2413A70B3F00974C3E /* InvisibileFingerAcceptanceTests.h */,
+				64E88E2513A70B3F00974C3E /* InvisibileFingerAcceptanceTests.m */,
+			);
+			name = AcceptanceTests;
+			sourceTree = "<group>";
+		};
+		64E88E2313A70B0700974C3E /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				64F3E23113A660B700B396EA /* PathTests.h */,
+				64F3E23213A660B700B396EA /* PathTests.m */,
+				64672DB513A2BD2B000C0271 /* InvisibleFingerTests.h */,
+				64672DB413A2BD2B000C0271 /* InvisibleFingerTests.m */,
+			);
+			name = UnitTests;
 			sourceTree = "<group>";
 		};
 		C76EB5E70F74592C00EF8398 /* src */ = {
@@ -594,6 +615,7 @@
 				6413822513A42B3B001311E9 /* TouchSynthesis.m in Sources */,
 				64F3E22F13A6608700B396EA /* Path.m in Sources */,
 				64F3E23313A660B700B396EA /* PathTests.m in Sources */,
+				64E88E2613A70B3F00974C3E /* InvisibileFingerAcceptanceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
