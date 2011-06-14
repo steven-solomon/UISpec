@@ -16,6 +16,7 @@
 @synthesize distance;
 @synthesize midPoint;
 @synthesize yIntercept;
+@synthesize stepSize;
 
 - (id)init
 {
@@ -32,9 +33,14 @@
         distance = sqrtf(powf((end.x - start.x), 2) + powf((end.y - start.y), 2));
         midPoint = CGPointMake((start.x + end.x) / 2 , (start.y + end.y) / 2);
         yIntercept = start.y - (slope * start.x);
+        stepSize = 3;
     }
     
     return self;
+}
+
+- (void)setStepSize:(int)newStepSize
+{
 }
 
 @end

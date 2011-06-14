@@ -20,6 +20,7 @@
     int distance;
     CGPoint midPoint;
     int yIntercept;
+    int stepSize; // default size is 3
 }
 
 // Desginated Initializer
@@ -31,4 +32,5 @@
 @property (nonatomic, readonly) int distance;
 @property (nonatomic, readonly) CGPoint midPoint;
 @property (nonatomic, readonly) int yIntercept;
+@property (nonatomic, assign) int stepSize;
 @end
