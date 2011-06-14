@@ -33,4 +33,6 @@
 @property (nonatomic, readonly) CGPoint midPoint;
 @property (nonatomic, readonly) int yIntercept;
 @property (nonatomic, assign) int stepSize;
+
+- (NSArray *)points; // All the points in the path incrementally using stepSize
 @end

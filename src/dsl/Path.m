@@ -33,14 +33,24 @@
         distance = sqrtf(powf((end.x - start.x), 2) + powf((end.y - start.y), 2));
         midPoint = CGPointMake((start.x + end.x) / 2 , (start.y + end.y) / 2);
         yIntercept = start.y - (slope * start.x);
-        stepSize = 3;
+        stepSize = 10;
     }
     
     return self;
 }
 
-- (void)setStepSize:(int)newStepSize
+- (NSArray *)points
 {
+    NSMutableArray *points = [[NSMutableArray alloc] init];
+    for (int currentX = startPoint.x; currentX < endPoint.x; currentX += stepSize)
+    {
+        CGPoint newPoint = CGPointMake(currentX + stepSize, (slope * (currentX + stepSize)) + yIntercept);
+        [points addObject:[NSValue valueWithCGPoint:newPoint]];
+    }
+    
+    [points autorelease];
+    
+    // return immutable copy
+    return [[points copy] autorelease];
 }
-
 @end
