@@ -105,6 +105,7 @@
         [[mockTouch expect] setPhase:UITouchPhaseMoved];
     }
     
+
     [[mockGestureRecognizer expect] touchesEnded:[OCMArg any] withEvent:[OCMArg any]];
    
     [view addGestureRecognizer:[recognizer autorelease]];

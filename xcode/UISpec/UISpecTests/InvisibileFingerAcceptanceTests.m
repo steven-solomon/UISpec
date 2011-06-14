@@ -48,14 +48,15 @@
     
     // Pan setup
     CGPoint startPoint = CGPointMake(10, 50);
-    CGPoint endPoint = CGPointMake(450, 50);
+    CGPoint endPoint = CGPointMake(500, 50);
     InvisibleFinger *swipefinger = [[InvisibleFinger alloc] initWithStartPoint:startPoint 
                                                                       endPoint:endPoint 
                                                                      andTarget:view];
     GHAssertNotNil(swipefinger, @"Finger shouldn't be nil");
     
-    UIGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] init] autorelease];
-    
+    UISwipeGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] init] autorelease];
+    [recognizer setDirection:UISwipeGestureRecognizerDirectionLeft 
+                            || UISwipeGestureRecognizerDirectionRight];
     [view addGestureRecognizer:recognizer];
     
     [swipefinger performGestures];

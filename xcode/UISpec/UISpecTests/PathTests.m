@@ -49,18 +49,23 @@
     GHAssertEquals((int)13, [path yIntercept], @"The y intercept should be 13");
     
     // Make sure step size for path is 1
-    GHAssertEquals(10, [path stepSize], @"The step size should be 3");
+    GHAssertEquals(3, [path stepSize], @"The step size should be 3");
 }
 
 - (void)testIteratingOverPath
 {
     CGPoint start = CGPointMake(0, 13);
-    CGPoint end = CGPointMake(20, 13);
+    CGPoint end = CGPointMake(21, 13);
     Path *path = [[Path alloc] initWithStartPoint:start endPoint:end];
     
     NSArray *array = [path points];
-    NSArray *answers = [NSArray arrayWithObjects:[NSValue valueWithCGPoint:CGPointMake(10, 13)], 
-                                                [NSValue valueWithCGPoint:CGPointMake(20, 13)], nil];
+    NSArray *answers = [NSArray arrayWithObjects:[NSValue valueWithCGPoint:CGPointMake(3, 13)], 
+                                                [NSValue valueWithCGPoint:CGPointMake(6, 13)],
+                                                [NSValue valueWithCGPoint:CGPointMake(9, 13)],
+                                                [NSValue valueWithCGPoint:CGPointMake(12, 13)],
+                                                [NSValue valueWithCGPoint:CGPointMake(15, 13)],
+                                                [NSValue valueWithCGPoint:CGPointMake(18, 13)], 
+                                                [NSValue valueWithCGPoint:CGPointMake(21, 13)], nil];
     
     GHAssertEquals([answers count], [array count], @"We should have the expected number of points");
     

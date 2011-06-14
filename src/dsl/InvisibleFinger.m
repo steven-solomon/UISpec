@@ -88,16 +88,15 @@
     [touches release];
 }
 
-// Simulate slow swipe definition (high directional percision)
 - (void)performSwipeEvent:(UIEvent *)event withTouch:(UITouch *)touch
 {
     
     NSSet *touches = [NSSet setWithObjects:&touch count:1];
-
+    
     // Begin Event
     [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
     [targetView touchesBegan:touches withEvent:event];
-
+    
     // Get point
     NSArray *points = [path points];
     
@@ -111,12 +110,12 @@
         [self sendSelector:@selector(touchesMoved:withEvent:) withEvent:event andTouches:touches];
         [targetView touchesMoved:touches withEvent:event];
     }
-  
+    
     // End Event
     [touch setPhase:UITouchPhaseEnded];
     [self sendSelector:@selector(touchesEnded:withEvent:) withEvent:event andTouches:touches];
     [targetView touchesEnded:touches withEvent:event];
-
+    
 }
 
 - (void)performTapGesture
