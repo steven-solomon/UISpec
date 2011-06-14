@@ -16,6 +16,7 @@
 
 @synthesize point;
 @synthesize targetView;
+@synthesize path;
 
 - (id)init
 {
@@ -87,6 +88,35 @@
     [touches release];
 }
 
+- (void)performSwipeEvent:(UIEvent *)event withTouch:(UITouch *)touch
+{
+    
+    NSSet *touches = [NSSet setWithObjects:&touch count:1];
+
+    // Begin Event
+    [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
+    [targetView touchesBegan:touches withEvent:event];
+
+    // Get point
+    NSArray *points = [path points];
+    
+    // Move from second point to last point in path generating move events along the way
+    for (int i = 1; i < [points count]; i++)
+    {
+        CGPoint aPoint = [points CGPointAtIndex:i];
+        [touch setLocationInWindow:aPoint];
+        [touch setPhase:UITouchPhaseMoved];
+        [self sendSelector:@selector(touchesMoved:withEvent:) withEvent:event andTouches:touches];
+        [targetView touchesMoved:touches withEvent:event];
+    }
+  
+    // End Event
+    [touch setPhase:UITouchPhaseEnded];
+    [self sendSelector:@selector(touchesEnded:withEvent:) withEvent:event andTouches:touches];
+    [targetView touchesEnded:touches withEvent:event];
+
+}
+
 - (void)performTapGesture
 {
     // Create touch and event
@@ -106,56 +136,20 @@
 {
     if (path != nil)
     {
-        // Create touch and event
-        UITouch *touch = [[UITouch alloc] initInView:targetView 
-                                              xcoord:(int)[path startPoint].x 
-                                              ycoord:(int)[path startPoint].y];
+        // Get point
+        CGPoint aPoint = [path startPoint];
         
+        // Create touch event
+        UITouch *touch = [[UITouch alloc] initInView:targetView 
+                                              xcoord:(int)aPoint.x 
+                                              ycoord:(int)aPoint.y];
         UIEvent *event = [[NSClassFromString(@"UITouchesEvent") alloc] initWithTouch:touch];
         
-        NSSet *touches = [[NSSet alloc] initWithObjects:&touch count:1];
-        
-        // Display a visible touch on screen
-        CGPoint convertedPoint = [[targetView superview] convertPoint:point fromView:targetView];
-        VisibleTouch *visibleTouch = [[VisibleTouch alloc] initWithCenter:convertedPoint];
-        [[targetView superview] addSubview:visibleTouch];
-        [[targetView superview] bringSubviewToFront:visibleTouch];
-        
-        // Display 
-        // Send begining event
-        [self sendSelector:@selector(touchesBegan:withEvent:) withEvent:event andTouches:touches];
-        [targetView touchesBegan:touches withEvent:event];
-        
-        // touch moved to midpoint
-        [touch setLocationInWindow:[path midPoint]];
-        // Change touch phase
-        [touch setPhase:UITouchPhaseMoved];
-        
-        [self sendSelector:@selector(touchesMoved:withEvent:) withEvent:event andTouches:touches];
-        [targetView touchesMoved:touches withEvent:event];
-
-        // touch moved to endpoint
-        [touch setLocationInWindow:[path endPoint]];
-        // Change touch phase
-        [touch setPhase:UITouchPhaseMoved];
-        
-        [self sendSelector:@selector(touchesMoved:withEvent:) withEvent:event andTouches:touches];
-        [targetView touchesMoved:touches withEvent:event];
-
-        // Touch ended
-        [touch setPhase:UITouchPhaseEnded];
-        
-        // Send ending event
-        [self sendSelector:@selector(touchesEnded:withEvent:) withEvent:event andTouches:touches];
-        [targetView touchesEnded:touches withEvent:event];
-        
-        [visibleTouch removeFromSuperview];
-        [visibleTouch release];
-        [touches release];
-
+        // Perform swipe
+        [self performSwipeEvent:event withTouch:touch];
+                
         [touch release];
         [event release];
-
     }
     else
     {
@@ -166,3 +160,12 @@
 
 @end
 
+@implementation NSArray (CGPointHelper)
+
+- (CGPoint)CGPointAtIndex:(NSUInteger)index
+{
+    NSValue *value = [self objectAtIndex:index]; 
+    CGPoint aPoint = [value CGPointValue];
+    return aPoint;
+}
+@end

@@ -26,9 +26,20 @@
 // Be aware point's default initialization is (0,0) 
 @property (nonatomic, readonly) CGPoint point;
 @property (nonatomic, retain) UIView *targetView;
+@property (nonatomic, readonly) Path *path;
 
 // Performs touch event (for internal use only do not call directly)
 - (void)performEvent:(UIEvent *)aEvent withTouch:(UITouch *)touch;
+
+- (void)performSwipeEvent:(UIEvent *)event withTouch:(UITouch *)touch;
+
 // Performs Gestures contained within
 - (void)performGestures;
+@end
+
+
+@interface NSArray (CGPointHelper)
+
+- (CGPoint)CGPointAtIndex:(NSUInteger)index;
+
 @end

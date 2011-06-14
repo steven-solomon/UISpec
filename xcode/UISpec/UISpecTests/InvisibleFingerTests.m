@@ -10,6 +10,7 @@
 #import "OCMock/OCMock.h"
 #import "InvisibleFinger.h"
 #import "TouchSynthesis.h"
+#import "Path.h"
 
 @implementation InvisibleFingerTests
 
@@ -77,4 +78,40 @@
     [mockGestureRecognizer verify];
 }
 
+- (void)testSwipeEvent
+{
+    CGPoint start = CGPointMake(0, 100);
+    CGPoint end = CGPointMake(40, 100);
+    InvisibleFinger *swipeFinger = [[InvisibleFinger alloc] initWithStartPoint:start 
+                                                                      endPoint:end 
+                                                                     andTarget:view];
+    UIGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] init] autorelease];
+    id mockGestureRecognizer = [OCMockObject partialMockForObject:recognizer];
+    
+    // Fake out touch so we can make sure it changes phase
+    UITouch *touch = [[[UITouch alloc] init] autorelease];
+    // create partial mock for touch
+    id mockTouch = [OCMockObject partialMockForObject:touch];
+    [[mockTouch expect] setPhase:UITouchPhaseEnded];    
+    
+    // Expectations for recognizer
+    [[mockGestureRecognizer expect] touchesBegan:[OCMArg any] withEvent:[OCMArg any]];
+    
+    // Call touch is moved for all points after first point
+    NSArray *points = [[swipeFinger path] points];
+    for (int i = 1; i < [points count]; i++)
+    {
+        [[mockGestureRecognizer expect] touchesMoved:[OCMArg any] withEvent:[OCMArg any]];
+        [[mockTouch expect] setPhase:UITouchPhaseMoved];
+    }
+    
+    [[mockGestureRecognizer expect] touchesEnded:[OCMArg any] withEvent:[OCMArg any]];
+   
+    [view addGestureRecognizer:[recognizer autorelease]];
+    
+    [swipeFinger performSwipeEvent:nil withTouch:touch];
+    
+    [mockTouch verify];
+    [mockGestureRecognizer verify];
+}
 @end
