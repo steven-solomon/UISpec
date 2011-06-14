@@ -88,6 +88,7 @@
     [touches release];
 }
 
+// Simulate slow swipe definition (high directional percision)
 - (void)performSwipeEvent:(UIEvent *)event withTouch:(UITouch *)touch
 {
     
@@ -102,7 +103,8 @@
     
     // Move from second point to last point in path generating move events along the way
     for (int i = 1; i < [points count]; i++)
-    {
+    {        
+        
         CGPoint aPoint = [points CGPointAtIndex:i];
         [touch setLocationInWindow:aPoint];
         [touch setPhase:UITouchPhaseMoved];

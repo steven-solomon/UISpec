@@ -47,8 +47,8 @@
 {
     
     // Pan setup
-    CGPoint startPoint = CGPointMake(200, 50);
-    CGPoint endPoint = CGPointMake(10, 50);
+    CGPoint startPoint = CGPointMake(10, 50);
+    CGPoint endPoint = CGPointMake(450, 50);
     InvisibleFinger *swipefinger = [[InvisibleFinger alloc] initWithStartPoint:startPoint 
                                                                       endPoint:endPoint 
                                                                      andTarget:view];
